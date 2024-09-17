@@ -68,6 +68,8 @@ const DomElement = function(selector) {
 const newDomElement1 = new DomElement('.block')
 
 newDomElement1.createElem()
+console.log(newDomElement1);
+
 
 
 
