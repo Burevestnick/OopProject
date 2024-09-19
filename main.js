@@ -1,72 +1,48 @@
 'use strict'
 
-const DomElement = function(selector) {
+const DomElement = function(selector, height, width, bg, fontSize) {
   this.selector = selector,
-  this.height = '',
-  this.width = '',
-  this.bg = '',
-  this.fontSize = 0
+  this.height = height,
+  this.width = width,
+  this.bg = bg,
+  this.fontSize = fontSize
   
   this.createElem = function() {
     if (selector[0] === '.') {
-      this.height = 'auto',
-      this.width = '200',
-      this.bg = 'rgb(186, 201, 220)',
-      this.fontSize = '16'
-
       let elem = document.createElement('div')
       elem.className = this.selector.slice(1)
-      elem.textContent = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus, beatae.!"
+      elem.textContent = prompt('Введите текст для дива')
+
       elem.style.cssText = `
       height: ${this.height}px;
       width: ${this.width}px;
-      border: solid 2px black;
       font-size: ${this.fontSize}px;
       background: ${this.bg};
-      border-radius: 10px;
-      padding: 15px;
-      margin-top: 10px;
+      margin-bottom: 40px;
       `
-      
       document.body.appendChild(elem);
     }  else if (selector[0] === '#') {
-      this.height = 'auto',
-      this.width = '60',
-      this.bg = 'rgb(160, 158, 202)',
-      this.fontSize = 20
-      
       let elem = document.createElement('p')
       elem.id = this.selector.slice(1)
-      elem.textContent = 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus, ipsum voluptate. Porro inventore quibusdam vero quisquam omnis quas facere facilis.'
+      elem.textContent = prompt('Введите текст для параграфа')
+
       elem.style.cssText = `
       height: ${this.height}px;
-      width: ${this.width}%;
-      border: dashed 2px black;
+      width: ${this.width}px;
       font-size: ${this.fontSize}px;
       background: ${this.bg};
-      border-radius: 5px;
-      display: flex;
-      align-content: center;
-      justify-content: center;
-      margin-top: 15px;
-      padding: 15px;
-      color: rgb(6, 4, 52);
+      margin-bottom: 40px;
       `
-      
       document.body.appendChild(elem);
     }
   }
 }
 
-const newDomElementDiv = new DomElement('.block')
-const newDomElementDiv1 = new DomElement('.block')
-const newDomElementParagraph = new DomElement('#best')
-const newDomElementParagraph1 = new DomElement('#best')
+const newDomElementDiv = new DomElement('.block', '50', '400', 'white', 16)
+const newDomElementParagraph = new DomElement('#best', 'auto', '300', 'red', 18)
 
 newDomElementDiv.createElem()
 newDomElementParagraph.createElem()
-newDomElementDiv1.createElem()
-newDomElementParagraph1.createElem()
 
 
 
