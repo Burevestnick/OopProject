@@ -1,11 +1,11 @@
 'use strict'
 
-const DomElement = function(selector) {
+const DomElement = function(selector, height, width, bg, fontSize) {
   this.selector = selector,
-  this.height = 100,
-  this.width = 100,
-  this.bg = 'white',
-  this.fontSize = 26,
+  this.height = height,
+  this.width = width,
+  this.bg = bg,
+  this.fontSize = fontSize
 
   this.top = 0,
   this.left = 0,
@@ -53,10 +53,6 @@ const DomElement = function(selector) {
       width: ${this.width}%;
       font-size: ${this.fontSize}px;
       background: ${this.bg};
-      border-radius: 20px;
-      padding-left: 10px;
-      margin-top: 10px;
-      color: rgb(121, 150, 231);
       `
 
       document.body.appendChild(elem);
@@ -65,7 +61,7 @@ const DomElement = function(selector) {
 
 }
 
-const newDomElement1 = new DomElement('.block')
+const newDomElement1 = new DomElement('.block', 100, 100, 'white', 0)
 
 newDomElement1.createElem()
 console.log(newDomElement1);
